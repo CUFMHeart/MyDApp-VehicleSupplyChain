@@ -8,11 +8,11 @@ Github 地址: https://github.com/SentimentalSwordsman/MyDApp-VehicleSupplyChain
 
 ---
 
-实验报告: https://github.com/SentimentalSwordsman/MyDApp-VehicleSupplyChain/16352091_温海霖.pdf
+实验报告: https://github.com/SentimentalSwordsman/MyDApp-VehicleSupplyChain/blob/master/16352091_温海霖.pdf
 
 ---
 
-演示视频: https://github.com/SentimentalSwordsman/MyDApp-VehicleSupplyChain/演示视频/演示视频.mp4
+演示视频: https://github.com/SentimentalSwordsman/MyDApp-VehicleSupplyChain/blob/master/演示视频/演示视频.mp4
 
 ---
 
