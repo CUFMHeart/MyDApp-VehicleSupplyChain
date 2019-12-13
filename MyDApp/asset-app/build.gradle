@@ -1,0 +1,59 @@
+apply plugin: 'maven'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
+    }
+    maven { url "https://dl.bintray.com/ethereum/maven/" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    mavenCentral()
+}
+
+
+List logger = [
+	'org.slf4j:slf4j-log4j12:1.7.25'
+]
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+    compile logger
+    runtime logger
+    compile ("org.fisco-bcos:web3sdk:2.1.0")
+}
+
+jar {
+	destinationDir file('dist/apps')
+	archiveName project.name + '.jar'
+	exclude '**/*.xml'
+	exclude '**/*.properties'
+	exclude '**/*.crt'
+	exclude '**/*.key'
+
+    doLast {
+		copy {
+			from configurations.runtime
+			into 'dist/lib'
+		}
+		copy {
+			from file('src/test/resources/')
+			into 'dist/conf'
+		}
+		copy {
+			from file('tool/')
+			into 'dist/'
+		}
+		copy {
+			from file('src/test/resources/contract')
+			into 'dist/contract'
+		}
+	}
+}
